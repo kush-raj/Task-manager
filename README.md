@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 TaskFlow — Team Task Manager (MERN)
 
 A production-ready, full-stack collaborative task management platform built with the MERN stack. Featuring a premium UI with glassmorphism, Kanban drag-and-drop, role-based access control, and real-time-like analytics.
@@ -125,3 +126,6 @@ node seeder.js
 3. Add services: **Node API** + **React Static** + **MongoDB Atlas**
 4. Set environment variables from `server/.env`
 5. Set `VITE_API_URL` in client to the deployed backend URL
+=======
+# Task-manager
+>>>>>>> f24d36fac8eaebb8af5a4885741c2f59089d228a
