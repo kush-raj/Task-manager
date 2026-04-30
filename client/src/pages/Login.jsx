@@ -66,7 +66,7 @@ const Login = () => {
             <div className="space-y-2">
               <label className="text-sm font-semibold ml-1">Email Address</label>
               <div className="relative group">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-500 transition-colors" size={20} />
+                {/* <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-500 transition-colors" size={20} /> */}
                 <input 
                   type="email" 
                   required
@@ -81,7 +81,7 @@ const Login = () => {
             <div className="space-y-2">
               <label className="text-sm font-semibold ml-1">Password</label>
               <div className="relative group">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-500 transition-colors" size={20} />
+                {/* <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-500 transition-colors" size={20} /> */}
                 <input 
                   type="password" 
                   required
