@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-family-sans: 'Inter', sans-serif;
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  --color-secondary: #a855f7;
+  --color-accent: #ec4899;
+}
+
+/* ── Base ───────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { 
+  font-family: 'Inter', sans-serif; 
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Inter', sans-serif;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.dark body,
+:root:where(.dark) {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+/* ── Glass effect ───────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 20px 40px -8px rgba(0,0,0,0.08);
+}
+.dark .glass {
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  box-shadow: 0 24px 48px -12px rgba(0,0,0,0.4);
+}
+
+/* ── Glass card ─────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 10px 30px -6px rgba(0,0,0,0.08);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -12px rgba(0,0,0,0.14);
+}
+.dark .glass-card {
+  background: rgba(30, 41, 59, 0.65);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+}
+
+/* ── Buttons ────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.375rem;
+  background-color: #6366f1;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -4px rgba(99,102,241,0.35);
+  transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.btn-primary:hover  { background-color: #4f46e5; box-shadow: 0 10px 24px -4px rgba(79,70,229,0.4); }
+.btn-primary:active { transform: scale(0.97); }
+
+/* ── Input ──────────────────────────── */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.6);
+  border: 1.5px solid #e2e8f0;
+  border-radius: 0.75rem;
+  outline: none;
+  font-size: 0.875rem;
+  color: #0f172a;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.input-field:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.18);
+}
+.dark .input-field {
+  background: rgba(30, 41, 59, 0.55);
+  border-color: #334155;
+  color: #f1f5f9;
+}
+.dark .input-field:focus { border-color: #818cf8; }
+
+/* ── Kanban board ───────────────────── */
+.kanban-column {
+  min-height: 500px;
+  border-radius: 1.125rem;
+  background-color: rgba(241, 245, 249, 0.55);
+  padding: 1rem;
+  transition: background-color 0.2s;
+}
+.dark .kanban-column {
+  background-color: rgba(30, 41, 59, 0.35);
+}
+
+/* ── Task cards ─────────────────────── */
+.task-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.875rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  border: 1.5px solid #e2e8f0;
+  margin-bottom: 0.75rem;
+  cursor: grab;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+.task-card:active { cursor: grabbing; }
+.task-card:hover  {
+  border-color: #a5b4fc;
+  box-shadow: 0 4px 12px rgba(99,102,241,0.12);
+}
+.dark .task-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+.dark .task-card:hover { border-color: #6366f1; }
+
+/* ── Scrollbar ──────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+.dark ::-webkit-scrollbar-thumb { background: #334155; }
+
+/* ── Sidebar active link fix ────────── */
+a.active-link {
+  background-color: #6366f1;
+  color: #fff;
+  box-shadow: 0 8px 20px -4px rgba(99,102,241,0.35);
+}
+
+/* ── Hide scrollbar class ───────────── */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
