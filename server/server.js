@@ -11,6 +11,17 @@ const projectRoutes = require('./routes/projectRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 
+
+
+// Serve frontend
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
+
 // Load env vars
 dotenv.config();
 
@@ -21,7 +32,8 @@ app.use(express.json());
 
 // Enable CORS
 app.use(cors({
-  origin: ["https://task-1w4p.vercel.app", "http://localhost:5174", "http://localhost:5173"],
+  //https://task-1w4p.vercel.app",
+  origin: ["http://localhost:5174", "http://localhost:5173"],
   credentials: true
 }));
 
@@ -64,10 +76,17 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
-  });
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   app.listen(PORT, () => {
+//     console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
+//   });
+// }
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
 
 module.exports = app;
